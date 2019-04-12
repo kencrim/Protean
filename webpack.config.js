@@ -6,6 +6,11 @@ const APP_DIR = path.resolve(__dirname, './src');
 module.exports = env => {
   return {
         entry: ['@babel/polyfill', APP_DIR],
+        devServer: {
+          contentBase: path.join(__dirname, 'dist'),
+          compress: true,
+          port: 9000
+        },
         module: {
           rules: [
             {

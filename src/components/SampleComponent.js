@@ -6,7 +6,6 @@ export default class SampleComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<p>Placeholder</p>
 				<p>Welcome, {this.context.name}!</p>
 			</div>
 		)

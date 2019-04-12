@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 
 import SampleComponent from './SampleComponent.js';
+import FoodSearch from './FoodSearch.js'
 import {UserContext} from './Contexts.js';
 
 class App extends Component {
@@ -16,9 +17,9 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-			<p>Server Side Rendering!</p>
 			<UserContext.Provider value={this.state.user}>
 				<SampleComponent />
+				<FoodSearch />
 			</UserContext.Provider>
 			</div>
 		)

@@ -1,13 +1,36 @@
-DROP DATABASE IF EXISTS template;
-CREATE DATABASE template;
+DROP DATABASE IF EXISTS calorie_counter;
+CREATE DATABASE calorie_counter;
 
-USE template;
+USE calorie_counter;
 
-CREATE TABLE IF NOT EXISTS users (
-  `user_id` INTEGER NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(30) NOT NULL UNIQUE,
-  `name` VARCHAR(30) NULL DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
+CREATE TABLE IF NOT EXISTS ingredients (
+  `ingredient_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `calories` DOUBLE(3,2) DEFAULT NULL,
+  `protein` DOUBLE(3,2) DEFAULT NULL,
+  `fat` DOUBLE(3,2) DEFAULT NULL,
+  `carbs` DOUBLE(3,2) DEFAULT NULL
+  PRIMARY KEY (`ingredient_id`)
+);
+
+CREATE TABLE IF NOT EXISTS meals (
+  `meal_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `calories` DOUBLE(3,2) DEFAULT NULL,
+  `protein` DOUBLE(3,2) DEFAULT NULL,
+  `fat` DOUBLE(3,2) DEFAULT NULL,
+  `carbs` DOUBLE(3,2) DEFAULT NULL,
+  `ingredients` VARCHAR(200) DEFAULT NULL
+  PRIMARY KEY (`ingredient_id`)
+);
+
+CREATE TABLE IF NOT EXISTS meal_logs (
+  `log_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(30) DEFAULT NULL,
+  `protein` DOUBLE(3,2) DEFAULT NULL,
+  `fat` DOUBLE(3,2) DEFAULT NULL,
+  `carbs` DOUBLE(3,2) DEFAULT NULL,
+  `ingredients` VARCHAR(200) DEFAULT NULL,
+  `timestamp` DATETIME DEFAULT NULL
+  PRIMARY KEY (`log_id`)
 );
 
 /*  Execute this file from the command line by running:
